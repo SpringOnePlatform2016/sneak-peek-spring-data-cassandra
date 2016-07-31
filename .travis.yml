@@ -1,0 +1,15 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+cache:
+  directories:
+    - $HOME/.m2
+    - 'download'
+
+sudo: false
+
+install: ./setup-cassandra.sh
+
+script: "mvn clean dependency:list test -Dsort"
